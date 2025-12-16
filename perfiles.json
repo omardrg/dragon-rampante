@@ -1,0 +1,927 @@
+{
+	"rasgos":[
+		"Indigno",
+		"Soso",
+		"Cobarde",
+		"Debilucho",
+		"Despiadado",
+		"Sabio",
+		"Valiente",
+		"Fuerte",
+		"Don de mando",
+		"Provocador",
+		"Campeador",
+		"Ojo de halcón",
+		"Formidable",
+		"Paciente",
+		"Embrujado",
+		"Fuerza 18/100"	
+	],
+	"categorias":[
+		{
+			"grupo":"UNIDADES MONTADAS",
+			"unidades":[1,2,3,4,5]
+		},
+		{
+			"grupo":"UNIDADES A PIE",
+			"unidades":[6,7,8,9,10,11,12,13]
+		}
+	],
+	"magia":[
+		{
+			"titulo":"Armaduras místicas",
+			"coste":2
+		},
+		{
+			"titulo":"Armas encantadas",
+			"coste":1
+		},
+		{
+			"titulo":"Armas benditas",
+			"coste":2
+		},
+		{
+			"titulo":"Cambiaformas",
+			"coste":1
+		},
+		{
+			"titulo":"Clérigo",
+			"coste":0
+		},
+		{
+			"titulo":"Exterminador",
+			"coste":0
+		},
+		{
+			"titulo":"Explosivo",
+			"coste":2
+		},
+		{
+			"titulo":"Invisibilidad",
+			"coste":3
+		},
+		{
+			"titulo":"Invocador",
+			"coste":3
+		},
+		{
+			"titulo":"Miedo",
+			"coste":2
+		},
+		{
+			"titulo":"Miedoso",
+			"coste":-2
+		},
+		{
+			"titulo":"No muerto",
+			"coste":0
+		},
+		{
+			"titulo":"Odio",
+			"coste":1
+		},
+		{
+			"titulo":"Taumaturgo",
+			"coste":4
+		},
+		{
+			"titulo":"Taumaturgo aprendiz",
+			"coste":2
+		},
+		{
+			"titulo":"Venenoso",
+			"coste":3
+		},
+		{
+			"titulo":"Volador",
+			"coste":2
+		},
+		{
+			"titulo":"Excavador",
+			"coste":2
+		}
+	],
+	"unidades":[
+		{
+			"tipo":"",
+			"puntos":0,
+			"combate":"",
+			"valorCombate":"",
+			"movimiento":"",
+			"valorDefensa":"",
+			"disparo":"",
+			"valorDisparo":"",
+			"coraje":"",
+			"movimientoMaximo":"",
+			"armadura":"",
+			"fuerza":"",
+			"reglasEspeciales":[
+				"Blanco difícil",
+				"Carga descontrolada",
+				"Contracarga",
+				"Contracarga (solo contra unidades a pie)",
+				"Escaramuza",
+				"Evasión",
+				"Explorador",
+				"Muro de lanzas",
+				"Pies ligeros"
+			],
+			"opciones":[
+				{
+					"titulo":"Lider",
+					"coste":0,
+					"reemplaza":[],
+					"modifica":[]
+				},
+				{
+					"titulo":"Armas combinadas",
+					"coste":2,
+					"reemplaza":[
+						"Muro de lanzas"
+					],
+					"modifica":[
+						{
+							"atributo":"disparo",
+							"valor":"6+"
+						},
+						{
+							"atributo":"valorDisparo",
+							"valor":"5+ (6&quot;)"
+						}
+					]
+				},
+				{
+					"titulo":"Astuto",
+					"coste":2,
+					"reemplaza":[],
+					"modifica":[
+						{
+							"atributo":"valorDefensa",
+							"valor":"5+"
+						}
+					]
+				},
+				{
+					"titulo":"Ataque de llamarada o esporas",
+					"coste":2,
+					"reemplaza":[
+						"Carga descontrolada"
+					],
+					"modifica":[
+						{
+							"atributo":"disparo",
+							"valor":"6+"
+						},
+						{
+							"atributo":"valor de disparo",
+							"valor":"5+ (12&quot;)"
+						}
+					]
+				},
+				{
+					"titulo":"Bestiajos con armaduras brillantes",
+					"coste":2,
+					"reemplaza":[],
+					"modifica":[
+						{
+							"atributo":"armadura",
+							"valor":"3"
+						}
+					]
+				},
+				{
+					"titulo":"Carros",
+					"coste":2,
+					"reemplaza":[],
+					"modifica":[
+						{
+							"atributo":"armadura",
+							"valor":"4"					
+						}
+					]
+				},
+				{
+					"titulo":"Ofensivos",
+					"coste":2,
+					"reemplaza":[
+						"Muro de lanzas"
+					],
+					"modifica":[
+						{
+							"atributo":"valorCombate",
+							"valor":"4+"
+						}
+					]
+				},
+				{
+					"titulo":"Pesado",
+					"coste":1,
+					"reemplaza":[
+						"Carga descontrolada"
+					],
+					"modifica":[]
+				},
+				{
+					"titulo":"Proyectiles",
+					"coste":2,
+					"reemplaza":[
+						"Carga descontrolada",
+						"Contracarga"
+					],
+					"modifica":[
+						{
+							"atributo":"disparo",
+							"valor":"6+"
+						},
+						{
+							"atributo":"valorDisparo",
+							"valor":"5+ (12&quot;)"
+						}
+					]
+				},
+				{
+					"titulo":"Proyectiles de corto alcance",
+					"coste":1,
+					"reemplaza":[
+						"Carga descontrolada",
+						"Contracarga"
+					],
+					"modifica":[
+						{
+							"atributo":"disparo",
+							"valor":"6+"
+						},
+						{
+							"atributo":"valorDisparo",
+							"valor":"5+ (6&quot;)"
+						}
+					]
+				},
+				{
+					"titulo":"Proyectiles grávidos",
+					"coste":-1,
+					"reemplaza":[],
+					"modifica":[
+						{
+							"atributo":"valorDisparo",
+							"valor":"4+ (12&quot;)"
+						}
+					]
+				},
+				{
+					"titulo":"Temple",
+					"coste":2,
+					"reemplaza":[
+						"Carga descontrolada"
+					],
+					"modifica":[
+						{
+							"atributo":"movimiento",
+							"valor":"5+"
+						}
+					]
+				},
+				{
+					"titulo":"Tirador de primera",
+					"coste":2,
+					"reemplaza":[],
+					"modifica":[
+						{
+							"atributo":"valorDisparo",
+							"valor":"4+ (18&quot;)"
+						}
+					]
+				}
+			],
+			"magia":[
+				"Clérigo",
+				"Exterminador",
+				"Invocador",
+				"Taumaturgo"
+			]
+		},
+		{
+			"tipo":"Bestias de guerra menores",
+			"puntos":4,
+			"combate":"5+",
+			"valorCombate":"4+",
+			"movimiento":"6+",
+			"valorDefensa":"6+",
+			"disparo":"-",
+			"valorDisparo":"-",
+			"coraje":"4+",
+			"movimientoMaximo":"12&quot;",
+			"armadura":"3",
+			"fuerza":"6",
+			"reglasEspeciales":[
+				"Carga descontrolada",
+				"Explorador",
+				"Pies ligeros"
+			],
+			"opciones":[
+				{
+					"titulo":"Lider",
+					"coste":0,
+					"reemplaza":[],
+					"modifica":[]
+				},
+				{
+					"titulo":"Astuto",
+					"coste":2,
+					"reemplaza":[],
+					"modifica":[
+						{
+							"atributo":"valorDefensa",
+							"valor":"5+"
+						}
+					]
+				},
+				{
+					"titulo":"Ataque de llamarada o esporas",
+					"coste":2,
+					"reemplaza":[
+						"Carga descontrolada"
+					],
+					"modifica":[
+						{
+							"atributo":"disparo",
+							"valor":"6+"
+						},
+						{
+							"atributo":"valorDisparo",
+							"valor":"5+ (12&quot;)"
+						}
+					]
+				}
+			],
+			"magia":[
+				"Clérigo",
+				"Exterminador",
+				"Invocador",
+				"Taumaturgo"
+			]
+		},
+		{
+			"tipo":"Grandes bestias de guerra",
+			"puntos":6,
+			"combate":"5+",
+			"valorCombate":"3+",
+			"movimiento":"6+",
+			"valorDefensa":"6+",
+			"disparo":"-",
+			"valorDisparo":"-",
+			"coraje":"3+",
+			"movimientoMaximo":"10&quot;",
+			"armadura":"4",
+			"fuerza":"6",
+			"reglasEspeciales":[
+				"Carga descontrolada",
+				"Explorador"
+			],
+			"opciones":[
+				{
+					"titulo":"Lider",
+					"coste":0,
+					"reemplaza":[],
+					"modifica":[]
+				},
+				{
+					"titulo":"Astuto",
+					"coste":2,
+					"reemplaza":[],
+					"modifica":[
+						{
+							"atributo":"valorDefensa",
+							"valor":"5+"
+						}
+					]
+				},
+				{
+					"titulo":"Ataque de llamarada o esporas",
+					"coste":2,
+					"reemplaza":[
+						"Carga descontrolada"
+					],
+					"modifica":[
+						{
+							"atributo":"disparo",
+							"valor":"6+"
+						},
+						{
+							"atributo":"valorDisparo",
+							"valor":"5+ (12&quot;)"
+						}
+					]
+				},
+				{
+					"titulo":"Pesado",
+					"coste":1,
+					"reemplaza":[
+						"Carga descontrolada"
+					],
+					"modifica":[]
+				}
+			],
+			"magia":[
+				"Clérigo",
+				"Exterminador",
+				"Invocador",
+				"Taumaturgo"
+			]
+		},
+		{
+			"tipo":"Jinetes de élite",
+			"puntos":6,
+			"combate":"5+",
+			"valorCombate":"3+",
+			"movimiento":"7+",
+			"valorDefensa":"5+",
+			"disparo":"-",
+			"valorDisparo":"-",
+			"coraje":"3+",
+			"movimientoMaximo":"10&quot;",
+			"armadura":"4",
+			"fuerza":"6",
+			"reglasEspeciales":[
+				"Carga descontrolada",
+				"Contracarga"
+			],
+			"opciones":[
+				{
+					"titulo":"Lider",
+					"coste":0,
+					"reemplaza":[],
+					"modifica":[]
+				},
+				{
+					"titulo":"Proyectiles",
+					"coste":2,
+					"reemplaza":[
+						"Carga descontrolada",
+						"Contracarga"
+					],
+					"modifica":[
+						{
+							"atributo":"disparo",
+							"valor":"6+"
+						},
+						{
+							"atributo":"valorDisparo",
+							"valor":"5+ (12&quot;)"
+						}
+					]
+				},
+				{
+					"titulo":"Temple",
+					"coste":2,
+					"reemplaza":[
+						"Carga descontrolada"
+					],
+					"modifica":[
+						{
+							"atributo":"movimiento",
+							"valor":"5+"
+						}
+					]
+				}
+			],
+			"magia":[]
+		},	
+		{
+			"tipo":"Jinetes ligeros",
+			"puntos":6,
+			"combate":"7+",
+			"valorCombate":"5+",
+			"movimiento":"5+",
+			"valorDefensa":"6+",
+			"disparo":"6+",
+			"valorDisparo":"5+ (12&quot;)",
+			"coraje":"5+",
+			"movimientoMaximo":"12&quot;",
+			"armadura":"3",
+			"fuerza":"6",
+			"reglasEspeciales":[
+				"Escaramuza",
+				"Evasión"
+			],
+			"opciones":[
+				{
+					"titulo":"Lider",
+					"coste":0,
+					"reemplaza":[],
+					"modifica":[]
+				},
+				{
+					"titulo":"Proyectiles de corto alcance",
+					"coste":-1,
+					"reemplaza":[],
+					"modifica":[					
+						{
+							"atributo":"valorDisparo",
+							"valor":"5+ (6&quot;)"
+						}
+					]
+				}
+			],
+			"magia":[
+				"Clérigo",
+				"Exterminador",
+				"Invocador",
+				"Taumaturgo"
+			]
+		},	
+		{
+			"tipo":"Jinetes pesados",
+			"puntos":4,
+			"combate":"5+",
+			"valorCombate":"4+",
+			"movimiento":"5+",
+			"valorDefensa":"5+",
+			"disparo":"-",
+			"valorDisparo":"-",
+			"coraje":"4+",
+			"movimientoMaximo":"10&quot;",
+			"armadura":"3",
+			"fuerza":"6",
+			"reglasEspeciales":[
+				"Contracarga"
+			],
+			"opciones":[
+				{
+					"titulo":"Lider",
+					"coste":0,
+					"reemplaza":[],
+					"modifica":[]
+				},
+				{
+					"titulo":"Carros",
+					"coste":2,
+					"reemplaza":[],
+					"modifica":[
+						{
+							"atributo":"armadura",
+							"valor":"4"					
+						}
+					]
+				},
+				{
+					"titulo":"Proyectiles",
+					"coste":1,
+					"reemplaza":[],
+					"modifica":[
+						{
+							"atributo":"disparo",
+							"valor":"6+"
+						},
+						{
+							"atributo":"valorDisparo",
+							"valor":"5+ (12&quot;)"
+						}
+					]
+				}
+			],
+			"magia":[]
+		},
+		{
+			"tipo":"Batidores",
+			"puntos":2,
+			"combate":"7+",
+			"valorCombate":"6+",
+			"movimiento":"5+",
+			"valorDefensa":"6+",
+			"disparo":"7+",
+			"valorDisparo":"5+ (12&quot;)",
+			"coraje":"5+",
+			"movimientoMaximo":"8&quot;",
+			"armadura":"1",
+			"fuerza":"6",
+			"reglasEspeciales":[
+				"Blanco difícil",
+				"Escaramuza",
+				"Evasión",
+				"Pies ligeros"
+			],
+			"opciones":[
+				{
+					"titulo":"Lider",
+					"coste":0,
+					"reemplaza":[],
+					"modifica":[]
+				}
+			],
+			"magia":[
+				"Clérigo",
+				"Exterminador",
+				"Explosivo",
+				"Invocador",
+				"Taumaturgo"
+			]
+		},
+		{
+			"tipo":"Energúmenos",
+			"puntos":4,
+			"combate":"5+",
+			"valorCombate":"3+",
+			"movimiento":"6+",
+			"valorDefensa":"6+",
+			"disparo":"-",
+			"valorDisparo":"-",
+			"coraje":"4+",
+			"movimientoMaximo":"8&quot;",
+			"armadura":"2",
+			"fuerza":"12",
+			"reglasEspeciales":[
+				"Carga descontrolada",
+				"Contracarga (solo contra unidades a pie)",
+				"Explorador",
+				"Pies ligeros"
+			],
+			"opciones":[
+				{
+					"titulo":"Lider",
+					"coste":0,
+					"reemplaza":[],
+					"modifica":[]
+				},
+				{
+					"titulo":"Bestiajos con armaduras brillantes",
+					"coste":2,
+					"reemplaza":[],
+					"modifica":[
+						{
+							"atributo":"armadura",
+							"valor":"3"
+						}
+					]
+				}
+			],
+			"magia":[
+				"Clérigo",
+				"Exterminador",
+				"Invocador",
+				"Taumaturgo"
+			]
+		},
+		{
+			"tipo":"Horda voraz",
+			"puntos":1,
+			"combate":"7+",
+			"valorCombate":"6+",
+			"movimiento":"6+",
+			"valorDefensa":"6+",
+			"disparo":"-",
+			"valorDisparo":"-",
+			"coraje":"5+",
+			"movimientoMaximo":"6&quot;",
+			"armadura":"1",
+			"fuerza":"12",
+			"reglasEspeciales":[],
+			"opciones":[],
+			"magia":[
+				"Armaduras místicas",
+				"Armas encantadas",
+				"Armas benditas",
+				"Cambiaformas",
+				"Clérigo",
+				"Exterminador",
+				"Explosivo",
+				"Invisibilidad",
+				"Invocador",
+				"Miedoso",
+				"Taumaturgo",
+				"Taumaturgo aprendiz",
+				"Volador",
+				"Excavador"
+			]
+		},
+		{
+			"tipo":"Infantería de élite",
+			"puntos":6,
+			"combate":"5+",
+			"valorCombate":"3+",
+			"movimiento":"5+",
+			"valorDefensa":"4+",
+			"disparo":"-",
+			"valorDisparo":"-",
+			"coraje":"3+",
+			"movimientoMaximo":"6&quot;",
+			"armadura":"4",
+			"fuerza":"6",
+			"reglasEspeciales":[
+				"Explorador"
+			],
+			"opciones":[
+				{
+					"titulo":"Lider",
+					"coste":0,
+					"reemplaza":[],
+					"modifica":[]
+				},
+				{
+					"titulo":"Proyectiles",
+					"coste":2,
+					"reemplaza":[],
+					"modifica":[
+						{
+							"atributo":"disparo",
+							"valor":"6+"
+						},
+						{
+							"atributo":"valorDisparo",
+							"valor":"5+ (18&quot;)"
+						}
+					]
+				}
+			],
+			"magia":[]
+		},
+		{
+			"tipo":"Infantería ligera",
+			"puntos":3,
+			"combate":"6+",
+			"valorCombate":"5+",
+			"movimiento":"5+",
+			"valorDefensa":"4+",
+			"disparo":"-",
+			"valorDisparo":"-",
+			"coraje":"4+",
+			"movimientoMaximo":"8&quot;",
+			"armadura":"2",
+			"fuerza":"12",
+			"reglasEspeciales":[
+				"Muro de lanzas"
+			],
+			"opciones":[
+				{
+					"titulo":"Lider",
+					"coste":0,
+					"reemplaza":[],
+					"modifica":[]
+				},
+				{
+					"titulo":"Armas combinadas",
+					"coste":2,
+					"reemplaza":[
+						"Muro de lanzas"
+					],
+					"modifica":[
+						{
+							"atributo":"disparo",
+							"valor":"6+"
+						},
+						{
+							"atributo":"valorDisparo",
+							"valor":"5+ (12&quot;)"
+						}
+					]
+				},
+				{
+					"titulo":"Ofensivos",
+					"coste":2,
+					"reemplaza":[
+						"Muro de lanzas"
+					],
+					"modifica":[
+						{
+							"atributo":"valorCombate",
+							"valor":"4+"
+						}
+					]
+				},
+				{
+					"titulo":"Proyectiles de corto alcance",
+					"coste":1,
+					"reemplaza":[],
+					"modifica":[
+						{
+							"atributo":"disparo",
+							"valor":"6+"
+						},
+						{
+							"atributo":"valorDisparo",
+							"valor":"5+ (6&quot;)"
+						}
+					]
+				}
+			],
+			"magia":[]
+		},
+		{
+			"tipo":"Infantería pesada",
+			"puntos":4,
+			"combate":"6+",
+			"valorCombate":"5+",
+			"movimiento":"5+",
+			"valorDefensa":"4+",
+			"disparo":"-",
+			"valorDisparo":"-",
+			"coraje":"4+",
+			"movimientoMaximo":"6&quot;",
+			"armadura":"3",
+			"fuerza":"12",
+			"reglasEspeciales":[
+				"Muro de lanzas"
+			],
+			"opciones":[
+				{
+					"titulo":"Lider",
+					"coste":0,
+					"reemplaza":[],
+					"modifica":[]
+				},
+				{
+					"titulo":"Ofensivos",
+					"coste":2,
+					"reemplaza":[
+						"Muro de lanzas"
+					],
+					"modifica":[
+						{
+							"atributo":"valorCombate",
+							"valor":"4+"
+						}
+					]
+				}
+			],
+			"magia":[]
+		},
+		{
+			"tipo":"Proyectiles ligeros",
+			"puntos":4,
+			"combate":"7+",
+			"valorCombate":"6+",
+			"movimiento":"6+",
+			"valorDefensa":"5+",
+			"disparo":"6+",
+			"valorDisparo":"5+ (18&quot;)",
+			"coraje":"4+",
+			"movimientoMaximo":"6+",
+			"armadura":"2",
+			"fuerza":"12",
+			"reglasEspeciales":[],
+			"opciones":[
+				{
+					"titulo":"Lider",
+					"coste":0,
+					"reemplaza":[],
+					"modifica":[]
+				},
+				{
+					"titulo":"Tirador de primera",
+					"coste":2,
+					"reemplaza":[],
+					"modifica":[
+						{
+							"atributo":"valorDisparo",
+							"valor":"4+ (18&quot;)"
+						}
+					]
+				}
+			],
+			"magia":[
+				"Clérigo",
+				"Exterminador",
+				"Taumaturgo"
+			]
+		},
+		{
+			"tipo":"Proyectiles pesados",
+			"puntos":4,
+			"combate":"7+",
+			"valorCombate":"6+",
+			"movimiento":"6+",
+			"valorDefensa":"5+",
+			"disparo":"7+",
+			"valorDisparo":"4+ (18&quot;)",
+			"coraje":"4+",
+			"movimientoMaximo":"6+",
+			"armadura":"2",
+			"fuerza":"12",
+			"reglasEspeciales":[],
+			"opciones":[
+				{
+					"titulo":"Lider",
+					"coste":0,
+					"reemplaza":[],
+					"modifica":[]
+				},
+				{
+					"titulo":"Proyectiles grávidos",
+					"coste":-1,
+					"reemplaza":[],
+					"modifica":[
+						{
+							"atributo":"valorDisparo",
+							"valor":"4+ (12&quot;)"
+						}
+					]
+				}
+			],
+			"magia":[
+				"Clérigo",
+				"Exterminador",
+				"Taumaturgo"
+			]
+		}
+	]
+}

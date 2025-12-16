@@ -1,0 +1,329 @@
+<!doctype html>
+	<html lang="es">
+		<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" type="image/x-icon" href="./media/favicon.ico" />
+		<link rel="icon" type="image/png" href="./media/favicon-16x16.png" sizes="16x16">
+		<link rel="icon" type="image/png" href="./media/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="./media/favicon-96x96.png" sizes="96x96">
+		<link rel="icon" type="image/png" href="./media/favicon-192x192.png" sizes="192x192">
+
+		<!-- Bootstrap CSS -->
+    	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+		<!-- Font Awesome CSS -->
+		<script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/js/all.min.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+		<!-- Custom -->
+		<style>
+			.bg-secondary {
+				background-color: #bbbbbb !important;
+			}
+			.input-group-text {
+				background-color:#ced4da;
+			}
+			.ficha, .ficha * {
+					page-break-inside: avoid !important;
+				}
+			@media print {
+				body, .container-fluid {
+					padding:0 !important;
+					margin:0 !important;
+				}
+				.col-6 {
+					max-width: 25%;
+				}
+				
+			}
+		</style>
+		<title>Dragón Rampante - Asistente para generar listas</title>
+		<meta name="description" content="Asistente para generar las listas de ejércitos en Dragón Rampante">
+		<meta property="og:title" content="Dragón Rampante - Asistente para generar listas" >
+		<meta property="og:description " content="Asistente para generar las listas de ejércitos en Dragón Rampante" >
+		<meta property="og:image" content="favicon-192x192.png" />
+		<meta name="author" content="Omar del Río - ONAWEB">
+		<meta name="robots" content="noindex">
+		<meta name="googlebot" content="noindex">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Expires" content="0">
+	</head>
+	<body class="m-3">
+		<header class="container-fluid mb-4">
+		<h1 class="display-4 text-center border-bottom border-dark">
+			<i class="fas fa-dragon text-info"></i> 
+			HOJA DE EJÉRCITO
+			<i class="fas fa-dragon fa-flip-horizontal text-info"></i> 
+		</h1>
+		<div class="row">
+			<div class="col-6 col-md-3 mb-2 fw-bold">
+				Compañía:
+				</div>
+				<div class="col-6 col-md-3 mb-2">
+					<input type="text" placeholder="(escribe)" class="form-control" id="companiaInfo">
+				</div>
+			<div class="col-6 col-md-3 mb-2 fw-bold">
+				Puntos totales:
+				</div>
+				<div class="col-6 col-md-3 mb-2">
+				<div class="input-group">
+					<input type="text" value="0" id="puntosTotales" class="form-control" aria-describedby="puntosTotalesInfo">
+					<span class="input-group-text" id="puntosTotalesInfo">Total: 24</span>
+					</div>
+				</div>
+				<div class="w-100"></div>
+			<div class="col-6 col-md-3 mb-2 fw-bold">
+				Nombre del líder:
+				</div>
+				<div class="col-6 col-md-3 mb-2">
+					<input type="text" placeholder="(escribe)" class="form-control" id="liderInfo">
+				</div>
+			<div class="col-6 col-md-3 mb-2 fw-bold">
+				Rasgo del líder:
+			</div>
+			<div class="col-6 col-md-3 mb-2">
+				<select class="form-select" id="rasgos">
+						<option selected>(selecciona)</option>
+					</select>
+				</div>				
+			</div>
+		</header>
+		<aside class="container-fluid mb-4 d-print-none">
+		<div class="row py-3 bg-dark text-light rounded align-items-center">
+			<div class="col-6 col-md-3 mb-2 fw-bold">
+				Nombre de la unidad:
+				</div>
+				<div class="col-6 col-md-3 mb-2">
+					<input type="text" placeholder="(escribe)" class="form-control" id="nombreUnidad">
+				</div>
+			<div class="col-6 col-md-3 mb-2 fw-bold">
+				Tipo de unidad:
+			</div>
+			<div class="col-6 col-md-3 mb-2">
+				<select class="form-select" id="tipoUnidad">
+						<option selected>(selecciona)</option>
+					</select>
+				</div>					
+				<div class="text-center col-12 col-md-6 order-1 mb-2 order-md-2">
+					<div class="alert alert-info d-flex align-items-center mb-0" role="alert">
+						<i class="fas fa-info-circle fa-2x me-3"></i>
+							<div>
+								Necesitas de 4 a 10 unidades, de entre 1 y 10 puntos de fuerza cada una. Debes tener 1 unidad Lider.<br>
+								<span id="avisoErrores" class="d-block"></span>
+							</div>
+						</div>
+				</div>
+				<div class="text-start col-6 col-md-3 order-2 order-md-1">
+				<button type="button" class="btn btn-info mb-2 text-white" id="imprimir">
+					<i class="fas fa-print"></i>
+					Imprimir
+					</button>
+				<button type="button" class="btn btn-info mb-2 text-white" data-bs-toggle="modal" data-bs-target="#reciclar">
+					<i class="fas fa-recycle"></i>
+					Reciclar
+					</button>					
+				</div>	
+				<div class="text-end col-6 col-md-3 order-3">
+				<button type="button" class="btn btn-info mb-2 text-white" id="nuevaUnidad">
+					<i class="fas fa-plus"></i> 
+					Añadir nueva unidad
+					</button>
+				</div>					
+			</div>			
+		</aside>		
+		<main class="container-fluid">
+
+		</main>
+		<aside class="d-none plantilla">
+			<div class="row border-top border-bottom- border-start border-dark bg-light mb-3 rounded-top ficha" data-tipo="" data-puntos="" data-identificador="" id="">
+				<div class="col-6 d-print-none text-start bg-dark py-1">
+					<button type="button" class="btn btn-link text-info p-0 border-0 subirUnidad">
+						<i class="fas fa-chevron-up fa-2x"></i>
+					</button>
+					<button type="button" class="btn btn-link text-info p-0 border-0 bajarUnidad">
+						<i class="fas fa-chevron-down fa-2x"></i>
+					</button>
+				</div>
+				<div class="col-6 d-print-none text-end bg-dark border-end border-dark py-1">
+					<button type="button" class="btn btn-link text-info p-0 border-0 borrarUnidad">
+						<i class="fas fa-trash-alt fa-2x"></i>
+					</button>
+				</div>
+				<div class="col-6 col-md-3 fw-bold bg-dark text-white py-2">
+					NOMBRE DE LA UNIDAD
+				</div>
+				<div class="col-6 col-md-3 bg-dark text-white py-2">
+					<input type="text" class="form-control form-control-sm nombreUnidad bg-dark text-white">
+				</div>
+				<div class="col-6 col-md-3 fw-bold bg-dark text-white py-2">
+					PUNTOS
+				</div>
+				<div class="col-6 col-md-3 bg-dark text-white py-2">
+					<input type="text" class="form-control form-control-sm puntosUnidad bg-dark text-white" value="0">
+				</div>				
+				<div class="w-100"></div>
+				<div class="col-6 col-md-3 py-2 fw-bold border-end border-bottom border-dark">
+					Combate
+				</div>
+				<div class="col-6 col-md-3 py-2 border-end border-bottom border-dark">
+					<div class="combate"></div>
+				</div>
+				<div class="col-6 col-md-3 py-2 fw-bold border-end border-bottom border-dark">
+					Valor de combate
+				</div>
+				<div class="col-6 col-md-3 py-2 border-end border-bottom border-dark">
+					<div class="valorCombate"></div>
+				</div>	
+				
+				<div class="w-100"></div>
+				<div class="col-6 col-md-3 py-2 fw-bold border-end border-bottom border-dark bg-secondary ">
+					Movimiento
+				</div>
+				<div class="col-6 col-md-3 py-2 border-end border-bottom border-dark bg-secondary">
+						<div class="movimiento"></div>
+					</div>
+				<div class="col-6 col-md-3 py-2 fw-bold border-end border-bottom border-dark bg-secondary">
+					Valor de defensa
+				</div>
+				<div class="col-6 col-md-3 py-2 border-end border-bottom border-dark bg-secondary">
+						<div class="valorDefensa"></div>
+					</div>	
+					
+				<div class="w-100"></div>
+				<div class="col-6 col-md-3 py-2 fw-bold border-end border-bottom border-dark">
+					Disparo
+				</div>
+				<div class="col-6 col-md-3 py-2 border-end border-bottom border-dark">
+						<div class="disparo"></div>
+					</div>
+				<div class="col-6 col-md-3 py-2 fw-bold border-end border-bottom border-dark">
+					Valor de disparo
+				</div>
+				<div class="col-6 col-md-3 py-2 border-end border-bottom border-dark">
+					<div class="valorDisparo"></div>
+				</div>	
+				
+				<div class="w-100"></div>
+				<div class="col-6 col-md-3 py-2 fw-bold border-end border-bottom border-dark bg-secondary ">
+					Coraje
+				</div>
+				<div class="col-6 col-md-3 py-2 border-end border-bottom border-dark bg-secondary">
+						<div class="coraje"></div>
+					</div>
+				<div class="col-6 col-md-3 py-2 fw-bold border-end border-bottom border-dark bg-secondary">
+					Movimiento máximo
+				</div>
+				<div class="col-6 col-md-3 py-2 border-end border-bottom border-dark bg-secondary">
+					<div class="movimientoMaximo"></div>
+				</div>	
+				
+				<div class="w-100"></div>
+				<div class="col-6 col-md-3 py-2 fw-bold border-end border-bottom border-dark">
+					Armadura
+				</div>
+				<div class="col-6 col-md-3 py-2 border-end border-bottom border-dark">
+						<div class="armadura"></div>
+					</div>
+					<div class="col-6 col-md-3 py-2 fw-bold border-end border-bottom border-dark">
+						Fuerza
+					</div>
+				<div class="col-6 col-md-3 py-2 border-end border-bottom border-dark">
+					<div class="fuerza"></div>
+				</div>	
+				
+				<div class="w-100"></div>
+				<div class="col-6 col-md-3 py-2 fw-bold border-end border-bottom border-dark bg-secondary ">
+					Reglas especiales
+				</div>
+				<div class="col-6 col-md-3 py-2 border-end border-bottom border-dark bg-secondary">
+						<div class="reglasEspeciales"></div>
+					</div>
+				<div class="col-6 col-md-3 py-2 fw-bold border-end border-bottom border-dark bg-secondary">
+					Opciones 
+				<button type="button" class="btn btn-info btn-sm nuevaOpcion d-print-none text-white" data-bs-toggle="modal" data-bs-target="#nuevaOpcion" data-tipo="" data-identificador="">
+					<i class="fas fa-plus"></i>
+				</button>
+				</div>
+				<div class="col-6 col-md-3 py-2 border-end border-bottom border-dark bg-secondary">
+					<div class="opciones" data-opciones="" data-magia=""></div>
+				</div>	
+			</div>		
+		</aside>
+		<footer class="text-center py-3">
+			<em>Desarrollado por <a href="https://onaweb.es" target="_blank">Onaweb</a> v1.4 - Generador creado sin ánimo de lucro</em>
+			<br>
+			<em>&copy; Daniel Mersey 2015 - Traducción editada por <a href="https://htpublishers.es" target="_blank">HT Publishers S.L.</a> en 2019</em>
+		</footer>
+		<!-- Modal -->
+		<div class="modal fade" id="nuevaOpcion" tabindex="-1" aria-labelledby="nuevaOpcionLabel" aria-hidden="true">
+			<div class="modal-dialog modal-xl modal-dialog-scrollable">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="nuevaOpcionLabel">OPCIONES</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<h6 class="fw-bold">Opciones de la unidad</h6>
+						<div id="opcionesUnidad" class="row mb-3">
+						
+						</div>
+						<h6 class="fw-bold">Opciones mágicas</h6>
+						<div id="opcionesMagicas" class="row mb-3">
+						
+						</div>
+					</div>
+					<div class="modal-footer">
+					<button type="button" class="btn btn-info text-white" id="aplicarOpciones" data-identificador="">
+						<i class="fas fa-share"></i> 
+						Aplicar
+						</button>
+					</div>
+					</div>
+				</div>
+			</div>
+
+		<!-- Modal -->
+		<div class="modal fade" id="reciclar" tabindex="-1" aria-labelledby="reciclarLabel" aria-hidden="true">
+			<div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="reciclarLabel">RECICLAR LISTAS</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<h6 class="fw-bold"><i class="fas fa-download fa-2x"></i> Importar</h6>
+						<div class="mb-3">
+							<input type="file" class="form-control" id="importarArchivo">
+						</div>
+						<p>
+							<textarea class="form-control font-monospace" id="importar" placeholder="introduce el texto exportado y pulsa el botón de Importar"></textarea>
+						</p>
+						<p class="text-end">
+						<button type="button" class="btn btn-info text-white" id="btnImportar">
+							<i class="fas fa-file-import"></i>
+							Importar
+							</button>	
+						</p>
+						<hr>
+						<h6 class="fw-bold"><i class="fas fa-upload fa-2x"></i> Exportar</h6>
+						<p>Copia el siguiente código para exportar tu actual configuración o descargate un archivo <em>json</em> con el contenido:</p>
+						<p class="text-break font-monospace user-select bg-secondary p-2" id="exportar" data-bs-toggle="tooltip" title=""></p>
+						<p class="text-end">
+						<a href="" class="btn btn-info text-white" download="" id="btnExportar">
+							<i class="fas fa-file-export"></i>
+							Descargar
+							</a>
+						</p>
+					</div>
+					</div>
+				</div>
+			</div>
+
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+		<script src="dragon-rampante.js"></script>
+	</body>
+</html>
