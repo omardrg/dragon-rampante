@@ -13,11 +13,16 @@ $(function(){
         });
         
         // relleno los tipos de unidades
-        $.each( p.categorias, function(i,e){
-            $('#tipoUnidad').append('<optgroup label="'+e.grupo+'"></optgroup>');
-            $.each( e.unidades, function(si,se){
-                $('#tipoUnidad optgroup:last').append('<option value="'+se+'">'+p.unidades[se].tipo+'</option>');
+        $.each(p.categorias, function(i, e) {
+            const optgroup = $('<optgroup>', { label: e.grupo });
+            $.each(e.unidades, function(si, se) {
+                const option = $('<option>', {
+                    value: se,
+                    text: p.unidades[se].tipo   // importante: usar `text` en vez de concatenar
+                });
+                optgroup.append(option);
             });
+            $('#tipoUnidad').append(optgroup);
         });
         
     }).fail(function() {
@@ -50,6 +55,11 @@ $(function(){
     });
     
     // FUNCIÓN DE CARGA DE DATOS
+    function decodeEntities(encodedString) {
+        const textarea = document.createElement('textarea');
+        textarea.innerHTML = encodedString;
+        return textarea.value;
+    }
     function cargaDatos(perfil,id){
         var i = perfil;
         var f = $('main #ficha'+id);
@@ -61,17 +71,17 @@ $(function(){
             f.find('.nombreUnidad').val( p.unidades[i].tipo );
         }
         f.find('.puntosUnidad').val( p.unidades[i].puntos );
-        f.find('.combate').html( p.unidades[i].combate );
-        f.find('.valorCombate').html( p.unidades[i].valorCombate );
-        f.find('.movimiento').html( p.unidades[i].movimiento );
-        f.find('.valorDefensa').html( p.unidades[i].valorDefensa );
-        f.find('.disparo').html( p.unidades[i].disparo );
-        f.find('.valorDisparo').html( p.unidades[i].valorDisparo );
-        f.find('.coraje').html( p.unidades[i].coraje );
-        f.find('.movimientoMaximo').html( p.unidades[i].movimientoMaximo );
-        f.find('.armadura').html( p.unidades[i].armadura );
-        f.find('.fuerza').html( p.unidades[i].fuerza );
-        f.find('.reglasEspeciales').html( p.unidades[i].reglasEspeciales.join(", ") );
+        f.find('.combate').text( p.unidades[i].combate );
+        f.find('.valorCombate').text( p.unidades[i].valorCombate );
+        f.find('.movimiento').text( p.unidades[i].movimiento );
+        f.find('.valorDefensa').text( p.unidades[i].valorDefensa );
+        f.find('.disparo').text( p.unidades[i].disparo );
+        f.find('.valorDisparo').text( p.unidades[i].valorDisparo );
+        f.find('.coraje').text( p.unidades[i].coraje );
+        f.find('.movimientoMaximo').text( decodeEntities(p.unidades[i].movimientoMaximo) );
+        f.find('.armadura').text( p.unidades[i].armadura );
+        f.find('.fuerza').text( p.unidades[i].fuerza );
+        f.find('.reglasEspeciales').text( p.unidades[i].reglasEspeciales.join(", ") );
         
     }
     
@@ -124,7 +134,7 @@ $(function(){
         $('#avisoErrores').html('');
         if ( !controlUnidades || !controlPuntos || totalLider != 1 ) {
             $('#avisoErrores').parents('.alert').removeClass('alert-info').addClass('alert-danger');
-            $('#avisoErrores').parents('.alert').find('.fad').removeClass('fa-info-circle').addClass('fa-exclamation-triangle');
+            $('#avisoErrores').parents('.alert').find('.fas').removeClass('fa-info-circle').addClass('fa-exclamation-triangle');
             if ( !controlUnidades ) {
                 $('#avisoErrores').append('<strong class="d-block">Tienes '+totalUnidades+' unidades</strong>');
             }
@@ -139,7 +149,7 @@ $(function(){
             }						
         } else {
             $('#avisoErrores').parents('.alert').removeClass('alert-danger').addClass('alert-info');
-            $('#avisoErrores').parents('.alert').find('.fad').removeClass('a-exclamation-triangle').addClass('fa-info-circle');
+            $('#avisoErrores').parents('.alert').find('.fas').removeClass('a-exclamation-triangle').addClass('fa-info-circle');
         }
     }
     
